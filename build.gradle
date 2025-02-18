@@ -17,9 +17,13 @@ dependencies {
     implementation 'io.quarkus:quarkus-undertow'
     implementation 'io.quarkus:quarkus-arc'
 
+    // this is used for GraalVM
     implementation 'jakarta.mail:jakarta.mail-api:2.1.3'
     implementation 'org.apache.jena:jena-core:5.3.0'
     implementation 'org.apache.jena:jena-arq:5.3.0'
+
+    // Substitute in GraalVM
+    implementation 'org.graalvm.sdk:nativeimage:5.3.0'
 
     implementation 'io.quarkus:quarkus-rest-client-jackson'
     implementation 'io.quarkus:quarkus-rest-client'

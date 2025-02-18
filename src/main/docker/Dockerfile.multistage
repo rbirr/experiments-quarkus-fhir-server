@@ -14,13 +14,13 @@ RUN ./gradlew build \
     -Dnative \
     -Dquarkus.package.jar.enabled=false \
     -Dquarkus.native.enabled=true \
-    -Dquarkus.native.additional-build-args=--initialize-at-run-time=ca.uhn.fhir.parser.RDFParser\\,org.apache.jena
+    -Dquarkus.native.add-all-charsets=true
 
 
 ## Stage 2 : create the docker final image
 FROM quay.io/quarkus/quarkus-micro-image:2.0
 WORKDIR /work/
-COPY --from=build /code/build /work/application
+COPY --from=build /code/build/*-runner /work/application
 RUN chmod 775 /work
 EXPOSE 8080
 CMD ["./application", "-Dquarkus.http.host=0.0.0.0"]

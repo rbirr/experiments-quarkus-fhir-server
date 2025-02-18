@@ -60,4 +60,5 @@ You can create a native executable using a docker multistage build:
 ```shell script
 docker build --no-cache -f src/main/docker/Dockerfile.multistage -t fhir-server-quarkus-native .
 ```
-ATTENTION: The native build does not work because of a dependency issue with the hapi libraries.
+ATTENTION: The native build does not work yet. The container is built, the service will start but it will
+throw an exception because of a missing dependency.
