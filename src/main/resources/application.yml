@@ -1,0 +1,8 @@
+quarkus:
+  rest-client:
+    backend-api:
+      url: http://localhost:3000
+
+hapi:
+  fhir:
+    version: R4
